@@ -1,0 +1,367 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Paula Luegi — Outputs</title><style>
+  /* ===== EDIT SITE COLOURS HERE ===== */
+  :root{
+    --accent:#8e2f9e; --accent-soft:#f3e7f6; --accent-line:#e2c9e8;
+    --header-bg:#3f2b4e; --header-bg2:#322340;
+    --page-bg:#ffffff; --text:#2b2730; --rule:#ece6ef; --muted:#8a8092;
+    --banner-pad:24px; /* banner height — raise or lower this one value */
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{color-scheme:light}
+  body{background:var(--page-bg);color:var(--text);
+    font-family:Georgia,"Times New Roman",serif;line-height:1.55;overflow-x:hidden}
+  .wrap{width:100%;max-width:none;padding:0 clamp(18px,4vw,56px) 56px}
+
+  /* banner with optional photo */
+  .banner{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:linear-gradient(90deg,rgba(43,30,58,.9) 0%,rgba(43,30,58,.55) 28%,rgba(43,30,58,.08) 55%,rgba(43,30,58,0) 68%),url('banner-art.png') center 38%/cover no-repeat,linear-gradient(135deg,var(--header-bg),var(--header-bg2));color:#fff;min-height:225px;
+    padding:var(--banner-pad) clamp(22px,4vw,48px);margin:0 calc(-1 * clamp(18px,4vw,56px));
+    display:flex;align-items:center;gap:26px;position:relative;overflow:hidden}
+  .banner::after{content:none}
+  .btext{z-index:1}
+  .banner h1{margin:0;font-size:clamp(27px,3.6vw,38px);font-weight:800;letter-spacing:-.01em}
+  .banner .meta{margin:7px 0 0;opacity:.93;font-size:14px}
+  .banner .meta a{color:#fff;border-bottom:1px solid rgba(255,255,255,.5);text-decoration:none}
+
+  .about{font-size:16.5px;line-height:1.68;color:#3a3340;
+    border-left:3px solid var(--accent);padding:2px 0 2px 18px;margin:26px 0 4px;max-width:74ch}
+
+  h2{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:21px;color:var(--accent);font-weight:800;letter-spacing:-.01em;
+    margin:36px 0 6px;padding-bottom:8px;border-bottom:2px solid var(--rule);
+    display:flex;align-items:baseline;gap:10px}
+  h2 .count{font-weight:400;font-size:12.5px;color:var(--muted)}
+  h3{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:16px;color:var(--header-bg);font-weight:700;margin:24px 0 2px}
+
+  /* ===== year timeline ===== */
+  .ygroup{display:flex;gap:16px;align-items:stretch}
+  .ynum{flex:none;width:50px;text-align:right;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-weight:800;font-size:15px;color:var(--accent);padding-top:11px}
+  .ybody{flex:1;border-left:2px solid var(--accent-line);padding-left:20px;position:relative}
+  .ybody::before{content:"";position:absolute;left:-6px;top:16px;width:10px;height:10px;
+    border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--page-bg)}
+  .ref{margin:0;padding:9px 0;border-bottom:1px solid var(--rule)}
+  .ybody .ref:last-child{border-bottom:none}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(142,47,158,.3)}
+  a:hover{border-bottom-color:var(--accent)}
+  strong{color:var(--accent)}
+
+  /* ===== collapsible Others ===== */
+  details.others{margin-top:38px}
+  details.others>summary{cursor:pointer;list-style:none;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:21px;font-weight:800;color:var(--accent);
+    padding-bottom:8px;border-bottom:2px solid var(--rule);display:flex;align-items:center;gap:10px}
+  details.others>summary::-webkit-details-marker{display:none}
+  .chev{display:inline-block;transition:transform .2s;font-size:15px}
+  details.others[open] .chev{transform:rotate(90deg)}
+  .hint{font-weight:400;font-size:12.5px;color:var(--muted);font-family:sans-serif}
+  @media (max-width:560px){.banner{flex-direction:column;text-align:center}.ynum{width:42px}}
+
+  footer{margin:46px auto 0;padding:20px 0 8px;border-top:1px solid var(--rule);
+    color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:13px;text-align:center}
+  footer a{color:var(--accent);border:none}
+  .plainlist .ref{margin:0;padding:11px 0;border-bottom:1px solid var(--rule)}
+  .plainlist .ref:last-child{border-bottom:none}
+  .per{display:inline-block;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-weight:700;font-size:12px;color:var(--accent);background:var(--accent-soft);
+    border-radius:999px;padding:2px 10px;margin-right:9px;white-space:nowrap}
+  .contact{display:flex;flex-wrap:wrap;gap:16px 34px;margin-top:10px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:15px}
+  .contact .lbl{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+    color:var(--muted);font-weight:700;margin-bottom:2px}
+
+  /* ---- multi-page header / nav / top contact bar ---- */
+  header{display:block}
+  nav.mainnav{background:var(--header-bg2);margin:0 calc(-1 * clamp(18px,4vw,56px)) 8px;
+    padding:0 clamp(18px,4vw,44px);display:flex;gap:2px;flex-wrap:wrap;
+    border-top:1px solid rgba(255,255,255,.08)}
+  nav.mainnav a{color:#e9dcef;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-weight:600;font-size:14.5px;text-decoration:none;border:none;
+    padding:12px 18px;border-bottom:3px solid transparent}
+  nav.mainnav a:hover{background:rgba(255,255,255,.06)}
+  nav.mainnav a.active{border-bottom-color:#fff;color:#fff}
+</style></head>
+<body><div class="wrap">
+  <header>
+  <div class="banner">
+    <div class="btext">
+      <h1>Paula Luegi</h1>
+      <p class="meta">Assistant Professor &middot; Linguistics &middot; School of Arts and Humanities, University of Lisbon</p>
+    </div>
+  </div>
+  <nav class="mainnav">
+    <a href="index.html">Home</a>
+    <a href="outputs.html" class="active">Outputs</a>
+    <a href="teaching.html">Teaching</a>
+  </nav>
+  </header>
+  <!-- ============ JOURNAL ARTICLES ============ -->
+  <h2>Journal articles <span class="count">peer-reviewed</span></h2>
+  <div class="ygroup"><div class="ynum">2026</div><div class="ybody">
+    <p class="ref">Papadopoulos, T. C., Fella, A., Acartürk, C., … <strong>Luegi, P.</strong>, … &amp; Erol Barkana, D. Eye-tracking in reading research: A systematic review of studies with children of varying reading ability. <i>European Psychologist</i>, <i>31</i>(2), 134–168. <a href="https://doi.org/10.1027/1016-9040/a000579">doi</a></p>
+    <p class="ref">Avila-Varela, D., Cabiddu, F., Escrichs, A., <strong>Luegi, P.</strong>, Veríssimo, J., &amp; Jones, G. Semantic support and sex differences in toddlers' spoken word recognition. <i>Journal of Experimental Child Psychology</i>, <i>265</i>, 106466. <a href="https://doi.org/10.1016/j.jecp.2026.106466">doi</a></p>
+    <p class="ref">Pae, H. K., Xia, D., Sun, H., … <strong>Luegi, P.</strong>, … &amp; Sedaghat, A. R. Translation and cross-cultural adaptation of the Chronic Rhinosinusitis Control Test for global use. <i>International Forum of Allergy &amp; Rhinology</i>. <a href="https://doi.org/10.1002/alr.70194">doi</a></p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2024</div><div class="ybody">
+    <p class="ref"><strong>Luegi, P.</strong>, Leitão, M., Avila-Varela, D., Gomes, J., &amp; Costa, A. Reflexive pronoun resolution in Portuguese: Testing similarity-based interference. <i>Frontiers in Language Sciences</i>, <i>3</i>, 1473948. <a href="https://doi.org/10.3389/flang.2024.1473948">doi</a></p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2019</div><div class="ybody">
+    <p class="ref">da Hora, K., <strong>Luegi, P.</strong>, Maia, M., &amp; Costa, A. Resolução de pronomes em posição de sujeito em orações completivas na retoma de antecedentes em SNs complexos: estudo comparativo entre Português Brasileiro e Português Europeu. <i>Revista da Associação Portuguesa de Linguística</i>, <i>5</i>, 207–224. <a href="https://doi.org/10.26334/2183-9077/rapln5ano2019a15">doi</a></p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2018</div><div class="ybody">
+    <p class="ref">Fernandes, E., <strong>Luegi, P.</strong>, Correa Soares, E., de la Fuente, I., &amp; Hemforth, B. Adaptation in pronoun resolution: Evidence from Brazilian and European Portuguese. <i>Journal of Experimental Psychology: Learning, Memory, and Cognition</i>, <i>44</i>(12), 1986–2008. <a href="https://doi.org/10.1037/xlm0000569">doi</a></p>
+    <p class="ref">Zheng, Y., <strong>Luegi, P.</strong>, Madeira, A., &amp; Matos, G. How Chinese learners of L2 European Portuguese interpret null and overt pronouns in forward and backward anaphora. <i>Revista LinguíStica</i>, <i>14</i>(2), 291–321. <a href="https://doi.org/10.31513/linguistica.2018.v14n2a17653">doi</a></p>
+    <p class="ref">Morgado, S., <strong>Luegi, P.</strong>, &amp; Lobo, M. Efeitos de animacidade do antecedente na resolução de pronomes sujeito. <i>Revista da Associação Portuguesa de Linguística</i>, <i>4</i>, 190–205. <a href="https://doi.org/10.26334/2183-9077/rapln4ano2018a40">doi</a></p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2015</div><div class="ybody">
+    <p class="ref">Falé, I., Costa, A., &amp; <strong>Luegi, P.</strong> Leitura em voz alta, movimentos oculares e prosódia: Integração de informação sintática e discursiva. <i>Revista da Associação Portuguesa de Linguística</i>, 261–275.</p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2014</div><div class="ybody">
+    <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Maia, M. Processamento e interpretação de sujeitos nulos e plenos em Português Europeu e em Português do Brasil. <i>Cadernos de Letras da UFF</i>, <i>49</i>, 67–88.</p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2011</div><div class="ybody">
+    <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Faria, I. H. Using eye-tracking to detect reading difficulties. <i>Journal of Eye Tracking, Visual Cognition and Emotion</i>, <i>1</i>.</p>
+    <p class="ref">Costa, A., Matos, G., &amp; <strong>Luegi, P.</strong> Using eye-tracking to study anaphoric relations processing in European Portuguese. <i>Journal of Eye Tracking, Visual Cognition and Emotion</i>, <i>1</i>.</p>
+    <p class="ref">Baptista, A., Faria, I. H., &amp; <strong>Luegi, P.</strong> Reading hybrid texts: Remarks on text/image transitions. <i>Journal of Eye Tracking, Visual Cognition and Emotion</i>, <i>1</i>.</p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2009</div><div class="ybody">
+    <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Faria, I. H. Analisando os comportamentos oculares durante a leitura. <i>Revista LinguíStica</i>, <i>5</i>(1), 62–80.</p>
+  </div></div>
+
+  <!-- ============ BOOK CHAPTERS ============ -->
+  <h2>Book chapters</h2>
+  <div class="ygroup"><div class="ynum">2026</div><div class="ybody">
+    <p class="ref">Godoy, M., <strong>Luegi, P.</strong>, &amp; Sampaio, T. M. Psycholinguistics. In A. M. Carvalho &amp; L. Oushiro (Eds.), <i>The Oxford Handbook of the Portuguese Language</i> (Chapter 15). Oxford University Press.</p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2012</div><div class="ybody">
+    <p class="ref"><strong>Luegi, P.</strong> Experiências psicolinguísticas: registar tempos e comportamentos no processamento de pronomes. In A. Costa &amp; I. Duarte (Eds.), <i>Nada na linguagem lhe é estranho. Homenagem a Isabel Hub Faria</i> (pp. 673–688). Edições Afrontamento.</p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2006</div><div class="ybody">
+    <p class="ref">Faria, I. H., Baptista, A., <strong>Luegi, P.</strong>, &amp; Taborda, C. Interaction and competition between types of representation: An example from eye-tracking registers while processing written words and images. In J. Pinto de Lima, M. C. Almeida, &amp; B. Sieberg (Eds.), <i>Questions on the Linguistic Sign</i> (pp. 115–129). Edições Colibri.</p>
+  </div></div>
+
+  <!-- ============ PROCEEDINGS ============ -->
+  <h2>Conference proceedings</h2>
+  <div class="ygroup"><div class="ynum">2025</div><div class="ybody">
+    <p class="ref">Jakobi, D. N., Stegenwallner-Schütz, M., Hollenstein, N., … <strong>Luegi, P.</strong>, … &amp; Jäger, L. A. MultiplEYE: Creating a multilingual eye-tracking-while-reading corpus. In <i>Proceedings of the 2025 Symposium on Eye Tracking Research and Applications</i> (ETRA '25), Article 111. ACM. <a href="https://doi.org/10.1145/3715669.3726843">doi</a></p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2019</div><div class="ybody">
+    <p class="ref"><strong>Luegi, P.</strong>, Maia, M., &amp; Costa, A. The use of pronominal forms in complement clauses in European and Brazilian Portuguese. In A. Botinis (Ed.), <i>Proceedings of ExLing 2019: 10th International Conference of Experimental Linguistics</i> (pp. 137–140). ExLing Society.</p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2016</div><div class="ybody">
+    <p class="ref">Falé, I., Costa, A., &amp; <strong>Luegi, P.</strong> Reading aloud: Eye movements and prosody. In <i>Proceedings of Speech Prosody 2016</i>. <a href="https://doi.org/10.21437/SpeechProsody.2016">doi</a></p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2010</div><div class="ybody">
+    <p class="ref">Costa, A., Matos, G., &amp; <strong>Luegi, P.</strong> Processamento de relações anafóricas com sujeitos omitidos em Português Europeu. In A. M. Brito, F. Silva, J. Veloso, &amp; A. Fiéis (Eds.), <i>Textos Selecionados do XXV Encontro Nacional da APL</i> (pp. 351–364).</p>
+    <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Faria, I. H. Eye movements during reading. In L. Scliar-Cabral (Ed.), <i>Psycholinguistics: Scientific and technological challenges — 8th International Congress of the ISAPL</i> (pp. 159–172). EDIPUCRS.</p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2009</div><div class="ybody">
+    <p class="ref">Costa, M. A., &amp; <strong>Luegi, P.</strong> Complexidade linguística e processamento referencial. In D. da Hora (Ed.), <i>Anais do VI Congresso Internacional da ABRALIN</i> (pp. 2127–2135).</p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2008</div><div class="ybody">
+    <p class="ref">Faria, I. H., &amp; <strong>Luegi, P.</strong> Priming effect on word reading and recall. In A. Botinis (Ed.), <i>Proceedings of the ISCA Tutorial and Research Workshop on Experimental Linguistics</i> (pp. 89–92).</p>
+    <p class="ref">Correia, D., Faria, I. H., &amp; <strong>Luegi, P.</strong> Reading mathematical exercises: Preliminary results. In A. Botinis (Ed.), <i>Proceedings of the ISCA Tutorial and Research Workshop on Experimental Linguistics</i> (pp. 73–76).</p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2007</div><div class="ybody">
+    <p class="ref"><strong>Luegi, P.</strong>, Costa, M. A., &amp; Faria, I. Mover para ler: o movimento dos olhos durante a leitura de textos. In M. Lobo &amp; M. A. Coutinho (Eds.), <i>Atas do XXII Encontro Nacional da APL</i> (pp. 431–445). Colibri.</p>
+  </div></div>
+  <div class="ygroup"><div class="ynum">2006</div><div class="ybody">
+    <p class="ref">Faria, I. H., <strong>Luegi, P.</strong>, Taborda, C., &amp; Baptista, A. Recuperação da informação visualizada: interacção e competição entre legendas e imagens. In J. Barbosa &amp; F. Oliveira (Eds.), <i>Atas do XXI Encontro Nacional da APL</i> (pp. 359–370). Colibri.</p>
+  </div></div>
+
+  <!-- ============ DATASETS (kept after proceedings) ============ -->
+  <h2>Datasets &amp; open materials</h2>
+  <div class="ygroup"><div class="ynum">2024</div><div class="ybody">
+    <p class="ref">Matos, J., Correia, S., &amp; <strong>Luegi, P.</strong> <i>Processing of masculine generics in European Portuguese: Data from a self-paced reading task</i> [Dataset]. OSF. <a href="https://doi.org/10.17605/OSF.IO/DGBQ3">doi</a></p>
+    <p class="ref">Falé, I., <strong>Luegi, P.</strong>, Gomes, J., &amp; Mendes, A. <i>Implicit and explicit discourse relations processing: A self-paced reading study with the ambiguous connective "de facto"</i> [Dataset]. OSF. <a href="https://osf.io/fb4um">osf.io/fb4um</a></p>
+  </div></div>
+
+<details class="others">
+    <summary><span class="chev">▶</span> Others <span class="hint">theses · invited talks · talks · posters — click to expand</span></summary>
+
+    <h3>Theses</h3>
+    <div class="ygroup"><div class="ynum">2012</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong> <i>Processamento de sujeitos pronominais em Português: efeito da posição estrutural dos antecedentes</i> [PhD thesis, Universidade de Lisboa].</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2006</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong> <i>O registo dos comportamentos oculares durante a leitura de textos</i> [MA thesis, Faculdade de Letras da Universidade de Lisboa].</p>
+    </div></div>
+
+    <h3>Invited talks</h3>
+    <div class="ygroup"><div class="ynum">2024</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong> Processamento de estruturas <i>garden-path</i> em Português Europeu: comparação entre <i>eyetracking</i> e <i>self-paced reading</i>. <i>Nice_Talks!</i> series, Universidade Católica Portuguesa, Lisbon.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2022</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong> Processamento da linguagem e co-referência: Alguns estudos em Português. <i>Psicolinguística e Interfaces</i> (online), Brazil.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2020</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Maia, M., &amp; Costa, A. O uso de formas pronominais em orações completivas em PE e em PB. <i>Ciclo de Seminários do LAPEX</i> (online), Brazil.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2019</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, &amp; Leitão, M. Contrasting retrieval and encoding interference in reflexive pronoun resolution in EP and BP. <i>4th Brazilian Workshop on Sentence Processing</i>, Fortaleza, Brazil.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2018</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong> Eye tracking in language processing and reading research: studies with typical and atypical populations. <i>Workshop on Methods and Research on Gaze Tracking</i>, Lisbon.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2017</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Leitão, M., Carvalho, M., &amp; Costa, A. Retrieval and encoding during the processing of gender-marked and unmarked European Portuguese reflexives. LiFE seminar, CLUNL, Lisbon.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2013</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong> Efeitos da função sintática e da posição estrutural do antecedente na interpretação e processamento de sujeitos nulos e pronominais em PE e em PB. <i>3.º Workshop em Processamento Anafórico</i>, Niterói, Brazil.</p>
+      <p class="ref"><strong>Luegi, P.</strong> Processamento de sujeitos pronominais em Português: efeito da posição estrutural dos antecedentes. CEHUM Linguistics seminars, University of Minho, Braga.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2005</div><div class="ybody">
+      <p class="ref">Faria, I. H., Baptista, A., <strong>Luegi, P.</strong>, &amp; Taborda, C. Interaction and competition between types of representation. <i>Questions on the Linguistic Sign</i>, Lisbon.</p>
+    </div></div>
+
+    <h3>Talks</h3>
+    <div class="ygroup"><div class="ynum">2025</div><div class="ybody">
+      <p class="ref">Falé, I., <strong>Luegi, P.</strong>, Gomes, J., &amp; Mendes, A. Analyzing the impact of (dis)continuity during the reading of explicit and implicit discourse relations. 58th Annual Meeting of the Societas Linguistica Europaea (SLE), Bordeaux, France.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2024</div><div class="ybody">
+      <p class="ref">Falé, I., <strong>Luegi, P.</strong>, Gomes, J., &amp; Mendes, A. Relações causais e confirmativas com "de facto". XL ENAPL, Azores, Portugal.</p>
+      <p class="ref"><strong>Luegi, P.</strong>, Gomes, J., Simões, D., &amp; Costa, A. Processamento de estruturas garden-path em Português Europeu: reanálise ou correferência? XL ENAPL, Azores, Portugal.</p>
+      <p class="ref">Matos, J., Correia, S., &amp; <strong>Luegi, P.</strong> Processamento de masculinos genéricos em Português Europeu: tarefa de leitura autocontrolada. XL ENAPL, Azores, Portugal.</p>
+      <p class="ref">Mendes, A., Falé, I., <strong>Luegi, P.</strong>, &amp; Gomes, J. Processing explicit and implicit discourse relations during reading: the ambiguous connective "de facto". DISROM 8, Lisbon, Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2023</div><div class="ybody">
+      <p class="ref">Matos, J., Correia, S., Gonçalves, M., &amp; <strong>Luegi, P.</strong> Generic masculine bias in European Portuguese nouns: evidence from a sentence evaluation paradigm. Linguistic Intersections of Language and Gender, Düsseldorf, Germany.</p>
+      <p class="ref"><strong>Luegi, P.</strong>, Leitão, M., Gomes, J., Avila-Varela, D., &amp; Costa, A. Processamento de formas reflexivas com e sem marcação de género: Efeitos de codificação ou de recuperação? XXXIX ENAPL, Covilhã, Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2021</div><div class="ybody">
+      <p class="ref">Matos, J., Correia, S., Gonçalves, M., &amp; <strong>Luegi, P.</strong> Interpretação de masculinos genéricos em PE: Resultados de um estudo experimental. XXXVII ENAPL (online), Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2020</div><div class="ybody">
+      <p class="ref">Matos, J., Correia, S., Gonçalves, M., &amp; <strong>Luegi, P.</strong> Estereótipos de Género em Nomes de Categorias Sociais do Português Europeu. XXXVI ENAPL (online), Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2019</div><div class="ybody">
+      <p class="ref">da Hora, K., <strong>Luegi, P.</strong>, Maia, M., &amp; Costa, A. Resolução de pronomes em posição de sujeito em orações completivas na retomada de antecedentes em SNs complexos. ABRALIN, Maceió, Brazil.</p>
+      <p class="ref">Simões, D., Costa, A., &amp; <strong>Luegi, P.</strong> Processamento e interpretação de frases temporariamente ambíguas em Português Europeu: experiência de eyetracking. XXXV ENAPL, Braga, Portugal.</p>
+      <p class="ref">Zhang, X., Costa, A., &amp; <strong>Luegi, P.</strong> Correferência sob o bias de causalidade implícita em PE-L2 por nativos de chinês. XXXV ENAPL, Braga, Portugal.</p>
+      <p class="ref"><strong>Luegi, P.</strong>, Maia, M., &amp; Costa, A. The use of pronominal forms in complement clauses in European and Brazilian Portuguese. 10th ExLing, Lisbon, Portugal.</p>
+      <p class="ref">Zhang, X., Costa, A., &amp; <strong>Luegi, P.</strong> Correferência sob o efeito de causalidade implícita: estudo de produção por nativos de chinês aprendentes de PE-L2. Macau e a Língua Portuguesa, Macau, China.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2018</div><div class="ybody">
+      <p class="ref">Morgado, S., <strong>Luegi, P.</strong>, Lobo, M., da Hora, K., &amp; Leitão, M. Efeito de animacidade do antecedente na retoma pronominal em posição de sujeito: contraste entre PE e PB. XXXIV ENAPL, Lisbon, Portugal.</p>
+      <p class="ref">da Hora, K., <strong>Luegi, P.</strong>, Maia, M., &amp; Costa, A. Resolução de pronomes em posição de sujeito de orações completivas na retoma de antecedentes em SNs complexos. XXXIV ENAPL, Lisbon, Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2017</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Leitão, M., Carvalho, M., &amp; Costa, A. Processamento de reflexivos marcados e não marcados em género em Português Europeu. X Congresso Internacional da ABRALIN, Niterói, Brazil.</p>
+      <p class="ref"><strong>Luegi, P.</strong>, Leitão, M., Carvalho, M., Barbosa, M., &amp; Costa, A. Efeitos de codificação e de recuperação no processamento de pronomes reflexivos com e sem marcação de género em PE e em PB. XXXIII ENAPL, Évora, Portugal.</p>
+      <p class="ref">Morgado, S., Lobo, M., &amp; <strong>Luegi, P.</strong> Efeitos de animacidade do antecedente na interpretação de pronomes sujeito. XXXIII ENAPL, Évora, Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2016</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Leitão, M., Carvalho, M., &amp; Costa, A. Retrieval and encoding during the processing of gender-marked and unmarked European Portuguese reflexives. Comissão de Acompanhamento do CLUL, Lisbon, Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2014</div><div class="ybody">
+      <p class="ref">Costa, A., Falé, I., &amp; <strong>Luegi, P.</strong> Syntax is linked to prosody: do the eyes and the voice reflect it? Experimental Psycholinguistics Conference (ERP), Madrid, Spain.</p>
+      <p class="ref">Falé, I., Costa, A., &amp; <strong>Luegi, P.</strong> Leitura em voz alta, movimentos oculares e prosódia. XXX ENAPL, Porto, Portugal.</p>
+      <p class="ref">Morgado, S., Costa, J., &amp; <strong>Luegi, P.</strong> O processamento de pronomes nulos e plenos em Português Europeu. Efeito da animacidade do antecedente. XXX ENAPL, Porto, Portugal.</p>
+      <p class="ref">Costa, A., Falé, I., &amp; <strong>Luegi, P.</strong> Reading fluency: an open window to processes of integration of linguistic information. 3.º Colóquio Internacional sobre Leitura, Lisbon, Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2013</div><div class="ybody">
+      <p class="ref">Falé, I., Costa, A., &amp; <strong>Luegi, P.</strong> Prosody and eye movements in reading fluency. TAELEC, Madrid, Spain.</p>
+      <p class="ref">Maia, M., Costa, A., <strong>Luegi, P.</strong>, Lourenço-Gomes, M. C., &amp; Villalva, A. Eye-movement evidence in the reading of [RC to NP of NP] structures in EP and BP. ISAPL, Moscow, Russia.</p>
+      <p class="ref">Costa, A., Villalva, A., <strong>Luegi, P.</strong>, Lourenço-Gomes, M. C., &amp; Maia, M. How semantic and morphological noun features explain the frequency of RC attachment to complex NPs. ISAPL, Moscow, Russia.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2012</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Maia, M. Null and overt pronouns processing and interpretation: Visual World Paradigm and offline questionnaire. 3rd ICETVCE, Lisbon, Portugal.</p>
+      <p class="ref"><strong>Luegi, P.</strong>, &amp; Maia, M. Processamento e interpretação de sujeitos nulos e plenos em Português Europeu e em Português do Brasil. XXVIII ENAPL, Faro, Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2011</div><div class="ybody">
+      <p class="ref">Baptista, A., Faria, I. H., &amp; <strong>Luegi, P.</strong> Emotional information understanding while listening and reading bimodal texts. 2nd ICETVCE, Lisbon, Portugal.</p>
+      <p class="ref"><strong>Luegi, P.</strong>, &amp; Morgado, S. Processamento da co-referência: influência da informação sintáctica e semântica. II Colóquio Internacional Leitura, Lisbon, Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2010</div><div class="ybody">
+      <p class="ref">Baptista, A., Faria, I. H., &amp; <strong>Luegi, P.</strong> Reading hybrid texts: Remarks on text/image transitions. 1st ICETVCE, Lisbon, Portugal.</p>
+      <p class="ref">Costa, A., Matos, G., &amp; <strong>Luegi, P.</strong> Using eye-tracking to study anaphoric relations processing in European Portuguese. 1st ICETVCE, Lisbon, Portugal.</p>
+      <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Faria, I. H. Using eye-tracking to detect reading difficulties. 1st ICETVCE, Lisbon, Portugal.</p>
+      <p class="ref"><strong>Luegi, P.</strong>, Maia, M., &amp; Costa, A. Null pronouns are also preferred to retrieve subject antecedents in Brazilian Portuguese. First International Psycholinguistics Meeting of ANPOLL, Rio de Janeiro, Brazil.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2009</div><div class="ybody">
+      <p class="ref">Costa, A., Matos, G., &amp; <strong>Luegi, P.</strong> Anaphoric relations processing involving subject gaps in European Portuguese. Going Romance, Nice, France.</p>
+      <p class="ref">Costa, A., Matos, G., &amp; <strong>Luegi, P.</strong> Processamento de relações anafóricas com sujeitos omitidos em Português Europeu. XXV ENAPL, Lisbon, Portugal.</p>
+      <p class="ref">Costa, A., &amp; <strong>Luegi, P.</strong> Complexidade linguística e processamento referencial. VI Congresso Internacional da ABRALIN, João Pessoa, Brazil.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2008</div><div class="ybody">
+      <p class="ref">Faria, I. H., &amp; <strong>Luegi, P.</strong> Priming effect on word reading and recall. 2nd ISCA Workshop on Experimental Linguistics (ExLing 2008), Athens, Greece.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2007</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Faria, I. Movimento dos olhos durante a leitura de textos: análise de clusters. 8th ISAPL Congress, Porto Alegre, Brazil.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2006</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Faria, I. Mover para ler: o movimento dos olhos durante a leitura de textos. XXII ENAPL, Coimbra, Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2005</div><div class="ybody">
+      <p class="ref">Faria, I. H., <strong>Luegi, P.</strong>, Taborda, C., &amp; Baptista, A. Recuperação da informação visualizada: interacção e competição entre legendas e imagens. XXI ENAPL, Porto, Portugal.</p>
+    </div></div>
+
+    <h3>Posters</h3>
+    <div class="ygroup"><div class="ynum">2025</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Falé, I., Gomes, J., &amp; Mendes, A. Processing (dis)continuous explicit and implicit discourse relations in European Portuguese. AMLaP, Prague, Czech Republic (4–6 Sept). <a href="https://openreview.net/forum?id=b8Hnmzy7wc">link</a></p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2023</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Leitão, M., Avila-Varela, D., Gomes, J., &amp; Costa, A. Reflexive resolution in European and Brazilian Portuguese. AMLaP, San Sebastián, Spain.</p>
+      <p class="ref">Simões, D., <strong>Luegi, P.</strong>, Gomes, J., &amp; Costa, A. Processing garden-path sentences in European Portuguese: The impact of language properties. AMLaP, San Sebastián, Spain.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2021</div><div class="ybody">
+      <p class="ref">Matos, J., Correia, S., Gonçalves, M., &amp; <strong>Luegi, P.</strong> Interpretation of masculine generics in European Portuguese. AMLaP (online), Paris, France.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2020</div><div class="ybody">
+      <p class="ref">Matos, J., Correia, S., Gonçalves, M., &amp; <strong>Luegi, P.</strong> Estereótipos de género em Nomes de categorias sociais do Português Europeu. XXXVI ENAPL (online), Portugal.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2019</div><div class="ybody">
+      <p class="ref">Fernandes, E., <strong>Luegi, P.</strong>, &amp; Teixeira, E. Statistical Learning in Pronoun Resolution. Interdisciplinary Advances in Statistical Learning, Bilbao, Spain.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2018</div><div class="ybody">
+      <p class="ref">Morgado, S., Lobo, M., &amp; <strong>Luegi, P.</strong> The overt pronoun in European Portuguese prefers animate antecedents. Annual CUNY Sentence Processing Conference, California, USA.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2017</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Maia, M., &amp; Costa, A. Impossibilidade, Obrigatoriedade e Opcionalidade: o uso de formas nulas e plenas em PE e em PB em contextos de subordinação. XXXIII ENAPL, Évora, Portugal.</p>
+      <p class="ref">Morgado, S., Lobo, M., &amp; <strong>Luegi, P.</strong> Is <i>he</i> a book? Animacy restrictions of the overt pronoun in European Portuguese. AMLaP, Lancaster, UK.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2016</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Leitão, M., Carvalho, M., &amp; Costa, A. Retrieving and encoding during gender-marked and unmarked European Portuguese reflexives. AMLaP, Bilbao, Spain.</p>
+      <p class="ref">Fernandes, E., <strong>Luegi, P.</strong>, Correa Soares, E., de la Fuente, I., &amp; Hemforth, B. How to turn Brazilians into Europeans: global and local exposure effects on co-reference in EP and BP. AMLaP, Bilbao, Spain.</p>
+      <p class="ref">Fernandes, E., <strong>Luegi, P.</strong>, Correa Soares, E., de la Fuente, I., &amp; Hemforth, B. Relative Clause-attachment in European and Brazilian Portuguese: Effects of verb type, tense and variety. AMLaP, Bilbao, Spain.</p>
+      <p class="ref">Costa, A., Falé, I., &amp; <strong>Luegi, P.</strong> Prosodic and visual indicators for linguistic processing in reading aloud. AMLaP, Bilbao, Spain.</p>
+      <p class="ref">Falé, I., Costa, A., &amp; <strong>Luegi, P.</strong> Reading aloud: eye movements and prosody. Speech Prosody 2016, Boston, USA.</p>
+      <p class="ref">Costa, A., Falé, I., &amp; <strong>Luegi, P.</strong> Searching for behavioral correlates of text complexity in reading. SSSR, Porto, Portugal.</p>
+      <p class="ref"><strong>Luegi, P.</strong>, Leitão, M., Costa, A., &amp; de Carvalho, M. Processamento de anáforas reflexivas com e sem marca de género em Português Europeu. XXXI ENANPOL, Campinas, Brazil.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2013</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Maia, M. Both syntactic function and structural position play an active role in on-line correferential processing. ECEM, Lund, Sweden.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2012</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Maia, M., &amp; Costa, P. Partial and Consistent Null Subject Languages: a sentence comprehension study in European and Brazilian Portuguese. AMLaP, Riva del Garda, Italy.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2011</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Maia, M. Order of mention and syntactic information in pronoun resolution: a visual world study. 10th International Symposium of Psycholinguistics, Donostia-San Sebastián, Spain.</p>
+      <p class="ref"><strong>Luegi, P.</strong>, Maia, M., &amp; Costa, A. Prominence in correference processing: weight of syntactic function and order of mention. AMLaP, Paris, France.</p>
+      <p class="ref">Villalva, A., &amp; <strong>Luegi, P.</strong> Is word processing sensitive to morphological cycles? 7th International Morphological Processing Conference, Donostia-San Sebastián, Spain.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2009</div><div class="ybody">
+      <p class="ref">Costa, A., Matos, G., &amp; <strong>Luegi, P.</strong> Anaphoric relations processing in European Portuguese. AMLaP, Barcelona, Spain.</p>
+      <p class="ref">Faria, I. H., Villalva, A., &amp; <strong>Luegi, P.</strong> Morphological priming in European Portuguese derived nouns. International Morphological Processing Conference, Turku, Finland.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2008</div><div class="ybody">
+      <p class="ref">Correia, D., Faria, I. H., &amp; <strong>Luegi, P.</strong> Reading mathematical exercises: preliminary results. 2nd ISCA Workshop on Experimental Linguistics (ExLing 2008), Athens, Greece.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2007</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Costa, A., &amp; Faria, I. H. Eye movements during the reading of syntactically manipulated structures. SSSR, Prague, Czech Republic.</p>
+      <p class="ref">Faria, I. H., <strong>Luegi, P.</strong>, &amp; Costa, A. Syntactic structure changes reading behavior: cluster analysis of eye movements. SSSR, Prague, Czech Republic.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2006</div><div class="ybody">
+      <p class="ref"><strong>Luegi, P.</strong>, Faria, I. H., &amp; Costa, A. Eye movements during text reading: dealing with topic familiarity and syntactic violations. SSSR, Vancouver, Canada.</p>
+    </div></div>
+    <div class="ygroup"><div class="ynum">2005</div><div class="ybody">
+      <p class="ref">Faria, I. H., Baptista, A., <strong>Luegi, P.</strong>, &amp; Taborda, C. Eye-tracking while processing written words and images: Interaction and competition between types of representation. ECEM, Bern, Switzerland.</p>
+    </div></div>
+
+  </details>
+  <footer>© Paula Luegi · last updated July 2026</footer>
+</div></body></html>
